@@ -1,0 +1,45 @@
+<div class="login_register">
+  <tabset class="right-pane" style="margin-top:10px;">
+    <tab heading="Login">
+      <div class="login-form">
+          <form class="form-horizontal" ng-submit="login()">
+            <fieldset>
+              <legend></legend>
+              <div class="form-group">
+                <input type="email" class="form-control" id="inputEmail" placeholder="Your email" ng-model="user.email">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="InputPassword" placeholder="Password" ng-model="user.password">
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btn btn-block btn-success" value="Login">
+              </div>
+            </fieldset>
+        </form>
+      </div>
+    </tab>
+
+    <tab heading="Register">
+      <div class="register-form">
+        <form ng-submit="register()" class="form-horizontal">
+          <fieldset>
+            <legend></legend>
+            <div class="form-group">
+              <input type="email" class="form-control" id="inputEmail" placeholder="Your email" ng-model="user.email">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="inputUsername" placeholder="Pick a Username" ng-model="user.username">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" id="InputPassword" placeholder="Password" ng-model="user.password">
+            </div>
+            <div class="form-group">
+              <p class="text-muted"><small>By clicking Signup, you agree to our terms of service and privacy policy. We will send you account related emails occasionally.</small></p>
+              <input type="submit" class="btn btn-block btn-success" value="Register">
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </tab>
+  </tabset>
+</div>
