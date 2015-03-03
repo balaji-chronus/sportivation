@@ -22,5 +22,5 @@ function($scope, Auth){
     $scope.user = {};
   });
 
-  
+
 }]);
