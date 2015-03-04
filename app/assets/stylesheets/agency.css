@@ -321,7 +321,7 @@ header .intro-text .intro-heading {
 }
 
 section {
-    padding: 100px 0;
+    padding: 0px 0;
 }
 
 section h2.section-heading {
@@ -341,7 +341,7 @@ section h3.section-subheading {
 
 @media(min-width:768px) {
     section {
-        padding: 100px 0;
+        padding: 0px 0;
     }
 }
 
@@ -649,13 +649,6 @@ section h3.section-subheading {
 
 aside.clients img {
     margin: 50px auto;
-}
-
-section#contact {
-    background-color: #222;
-    background-image: url(../images/map-image.png);
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 section#contact .section-heading {

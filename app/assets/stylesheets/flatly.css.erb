@@ -5,6 +5,8 @@
  *= require flatly/bootswatch
  *= require animate
  *= require agency
+ *= require box
+ *= require font-awesome/css/font-awesome
 */
 
 /* App Styles */
@@ -21,7 +23,7 @@
 .navy-line{
   width:60px;
   height:1px;
-  margin:60px auto 0;
+  margin:30px auto 0;
   border-bottom:2px solid #2c3e50;
 }
 
@@ -29,46 +31,6 @@
 section p{
   font-size:13px;
 }
-
-ul.socialbuttons li a{
-  display:block;
-  width:40px;
-  height:40px;
-  border-radius:100%;
-  font-size:20px;
-  line-height:40px;
-  outline:0;
-  background-color:#222;
-  transition:all .3s;
-}
-
-footer {
-    padding: 25px 0;
-    text-align: center;
-}
-
-footer span.copyright {
-    text-transform: uppercase;
-    text-transform: none;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    line-height: 40px;
-}
-
-footer ul.quicklinks {
-    margin-bottom: 0;
-    text-transform: uppercase;
-    text-transform: none;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    line-height: 40px;
-}
-
-ul.social-buttons li a:hover,
-ul.social-buttons li a:focus,
-ul.social-buttons li a:active {
-    background-color: #fed136;
-}
-
-
 
 /* Landing Page */
 
@@ -116,9 +78,6 @@ ul.social-buttons li a:active {
 /* Carousel - End */
 
 /* Services Section - Start */
-.services{
-  padding-top:60px;
-}
 
 .services h2{
   font-size:20px;
@@ -136,33 +95,16 @@ ul.social-buttons li a:active {
 
 /*Team Member Section - Start */
 
-.team-member{
-  text-align:center;
-}
-
 .gray-section{
   background:#f4f4f4;
-  margin-top:60px;
+  margin-top:30px;
 }
 
-.team-member img{
-  display:inline;
-  max-width:100%;
-  height:auto;
-}
 /* Team Member Section - End */
 
-/*Contact Section- Start */
-.contact{
-  background-image:url('http://www.castellohomes.com/pages/world-map1.png');
-  background-position:40% 0%;
-  background-repeat:no-repeat;
-  margin-top:60px;
+.contact {
+    background-color: #222;
+    background-image: url("<%= asset_url('map-image.png') %>");
+    background-position:40% 0%;
+    background-repeat: no-repeat;
 }
-/* Contact Section- End */
-
-/* Features Section - Start */
-.features-text{
-  margin-top:40px;
-}
-/* Features Section - End */

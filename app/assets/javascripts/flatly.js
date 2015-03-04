@@ -10,4 +10,5 @@
 //= require flatly/loader
 //= require flatly/bootswatch
 //= require ui-bootstrap-tpls-0.12.0
+//= require angular-scroll
 //= require angularapp

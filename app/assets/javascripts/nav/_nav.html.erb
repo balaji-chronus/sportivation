@@ -1,7 +1,7 @@
 <div class="collapse navbar-collapse pull-right" ng-controller="NavCtrl">
   <ul class="nav navbar-nav">
     <li ng-show="signedIn()"><a href="#/">{{ user.username }}</a></li>
-    <li><a ng-click="open()">Sign In</a></li>
     <li ng-show="signedIn()"><a ng-click="logout()">Log Out</a></li>
+    <li ng-hide="signedIn()"><a href="#team" du-smooth-scroll>Team</a></li>
   </ul>
 </div>

@@ -1,0 +1,268 @@
+<div id="myCarousel" class="carousel slide">
+  <carousel interval="myInterval">
+  <slide ng-repeat="slide in slides" active="slide.active">
+      <div class="jumbotron text-clear col-xs-8 col-xs-offset-2">
+        <h1 class="text-center animated fadeInUp">{{slide.headerText}}</h1>
+        <p class="text-center animated fadeInUp">{{slide.text}}</p>
+          <p><a ng-click="open()" class="top-buffer btn btn-success text-clear animated fadeInLeft">{{slide.buttonText}}</a></p>
+      </div>
+  </slide>
+  <script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+      <h3 class="modal-title">Getting Started</h3>
+    </div>
+    <div class="modal-body" ng-controller="AuthCtrl">
+      <div class="login_register">
+        <tabset>
+        <tab heading="Login">
+          <div class="login-form">
+            <form ng-submit="login()" class="form-horizontal">
+              <fieldset>
+                <legend></legend>
+                <div class="form-group">
+                  <input type="email" class="form-control" placeholder="Your email" ng-model="user.email">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Password" ng-model="user.password">
+                </div>
+                <div class="form-group">
+                  <input type="submit" class="btn btn-block btn-success" value="Login">
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </tab>
+          <tab heading="Register">
+            <div class="register-form">
+              <form ng-submit="register()" class="form-horizontal">
+                <fieldset>
+                  <legend></legend>
+                  <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Your email" ng-model="user.email">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Pick a Username" ng-model="user.username">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password" ng-model="user.password">
+                  </div>
+                  <div class="form-group">
+                    <p class="text-muted"><small>By clicking Signup, you agree to our terms of service and privacy policy. We will send you account related emails occasionally.</small></p>
+                    <input type="submit" class="btn btn-block btn-success" value="Register">
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </tab>
+        </tabset>
+      </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-warning" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+  </script>
+</div>
+
+<section id="features" class="container services">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+          <div class="navy-line"></div>
+          <h1>Lorem ipsum dolor sit amet, <br> <span class="text-primary"> illum fastidii dissentias quo ne.</span> </h1>
+          <p>Sea ne sint animal iisque, nam an soluta sensibus.</p>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="box animated fadeInLeft">
+                <div class="box-icon">
+                    <span class="fa fa-4x fa-dribbble"></span>
+                </div>
+                <div class="info">
+                    <h4 class="text-center">Title</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur corporis at explicabo nulla dolore necessitatibus doloremque exercitationem sequi dolorem architecto perferendis quas aperiam debitis dolor soluta!</p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="box animated fadeInRight">
+                <div class="box-icon">
+                    <span class="fa fa-4x fa-futbol-o"></span>
+                </div>
+                <div class="info">
+                    <h4 class="text-center">Title</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur corporis at explicabo nulla dolore necessitatibus doloremque exercitationem sequi dolorem architecto perferendis quas aperiam debitis dolor soluta!</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="box animated fadeInLeft">
+                <div class="box-icon">
+                    <span class="fa fa-4x fa-motorcycle"></span>
+                </div>
+                <div class="info">
+                    <h4 class="text-center">Title</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur corporis at explicabo nulla dolore necessitatibus doloremque exercitationem sequi dolorem architecto perferendis quas aperiam debitis dolor soluta!</p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="box animated fadeInRight">
+                <div class="box-icon">
+                    <span class="fa fa-4x fa-heartbeat"></span>
+                </div>
+                <div class="info">
+                    <h4 class="text-center">Title</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur corporis at explicabo nulla dolore necessitatibus doloremque exercitationem sequi dolorem architecto perferendis quas aperiam debitis dolor soluta!</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="team" class="gray-section team">
+    <div class="container">
+      <div class="navy-line"></div>
+        <div class="row m-b-lg">
+            <div class="col-lg-12 text-center">
+                <h1>Our Team</h1>
+                <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 wow fadeInLeft animated" style="visibility: visible;">
+                <div class="team-member wow zoomIn animated">
+                    <img src="<%= asset_url('Balaji.jpg') %>" class="img-responsive img-circle img-small" alt="">
+                    <h4><span class="text-primary">Balaji</span> Seetharaman</h4>
+                    <p>Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta sensibus. </p>
+                    <ul class="list-inline social-icon">
+                        <li class="fa-stack fa-md"><a href="#"> <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i></a>
+                        </li>
+                        <li class="fa-stack fa-md"><a href="#"><i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i></a>
+                        </li>
+                        <li class="fa-stack fa-md"><a href="#"><i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6 wow fadeInRight animated" style="visibility: visible;">
+                <div class="team-member wow zoomIn animated">
+                    <img src="<%= asset_url('Ramji.jpg') %>" class="img-responsive img-circle img-small" alt="">
+                    <h4><span class="text-primary">Ramji</span> Seetharaman</h4>
+                    <p>Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta sensibus.</p>
+                    <ul class="list-inline social-icon">
+                      <li class="fa-stack fa-md"><a href="#"> <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-twitter fa-stack-1x fa-inverse"></i></a>
+                      </li>
+                      <li class="fa-stack fa-md"><a href="#"><i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-facebook fa-stack-1x fa-inverse"></i></a>
+                      </li>
+                      <li class="fa-stack fa-md"><a href="#"><i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i></a>
+                      </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="gray-section contact">
+    <div class="container">
+        <div class="row m-b-lg">
+            <div class="col-lg-12 text-center text-clear">
+                <div class="navy-line"></div>
+                <h1 class="text-clear"><strong><span class="text-primary">Lorem</span></strong> Ipsum</h1>
+                <p class="text-clear">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+            </div>
+        </div>
+        <div class="row m-b-lg">
+            <div class="col-lg-3 col-lg-offset-3">
+                <address class="text-clear">
+                    <strong><span class="text-primary">Lorem Ipsum.</span></strong><br>
+                    Donec sed odio dui. <br>
+                    Etiam porta sem malesuada magna mollis euismod.<br>
+                    <abbr title="Phone">P:</abbr> Lorem Ipsum
+                </address>
+            </div>
+            <div class="col-lg-4">
+                <p class="text-clear">
+                    Consectetur adipisicing elit. Aut eaque, totam corporis laboriosam veritatis quis ad perspiciatis, totam corporis laboriosam veritatis, consectetur adipisicing elit quos non quis ad perspiciatis, totam corporis ea,
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <a href="mailto:test@email.com" class="btn btn-primary">Send us mail</a>
+                <p class="m-t-sm text-clear">
+                  Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.
+                </p>
+                <ul class="list-inline social-icon">
+                  <li class="fa-stack fa-md"><a href="#"> <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-twitter fa-stack-1x fa-inverse"></i></a>
+                  </li>
+                  <li class="fa-stack fa-md"><a href="#"><i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-facebook fa-stack-1x fa-inverse"></i></a>
+                  </li>
+                  <li class="fa-stack fa-md"><a href="#"><i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i></a>
+                  </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
+                <p class="text-clear"><strong>Donec sed odio dui. </strong><br> Etiam porta sem malesuada magna mollis euismod.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <span class="copyright">Lorem Ipsum</span>
+      </div>
+      <div class="col-md-4">
+        <ul class="list-inline social-icon">
+          <li class="fa-stack fa-lg"><a href="#"> <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i></a>
+          </li>
+          <li class="fa-stack fa-lg"><a href="#"><i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i></a>
+          </li>
+          <li class="fa-stack fa-lg"><a href="#"><i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <ul class="list-inline quicklinks">
+          <li>
+            <a href="#">Lorem Ipsum</a>
+          </li>
+          <li>
+            <a href="#">Lorem Ipsum</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</div>
+</footer>

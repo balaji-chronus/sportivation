@@ -1,16 +1,8 @@
 angular.module('sportivation')
-.controller('AuthCtrl', ['$scope', '$state', '$modal', 'Auth',
-  function($scope, $state, $modal, Auth) {
+.controller('AuthCtrl', ['$scope', '$state', 'Auth',
+  function($scope, $state, Auth) {
 
-  $scope.open = function(){
-  var modalInstance = $modal.open({
-      templateUrl: 'myModalContent.html',
-      controller: 'ModalInstanceCtrl',
-      size: 'md'
-    });
-  };
-
-    $scope.login = function() {
+   $scope.login = function() {
      Auth.login($scope.user).then(function(){
        $state.go('home');
      });
@@ -21,6 +13,7 @@ angular.module('sportivation')
        $state.go('home');
      });
    };
+   
    $scope.myInterval = 5000;
    $scope.slides = [{
       //image:'https://ourmaninproject.files.wordpress.com/2011/12/5174490944_6e407bc2ee_b.jpg',
@@ -44,12 +37,4 @@ angular.module('sportivation')
       buttonText:'Get Started'
     }
   ];
-}]).controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
-  $scope.ok = function () {
-    $modalInstance.close();
-  };
-
-  $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
-  };
-});
+}])
