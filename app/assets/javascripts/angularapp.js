@@ -5,7 +5,7 @@ angular.module('sportivation', ['ui.router', 'templates', 'Devise', 'ui.bootstra
 function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
-      url: '/',
+      url: '/home',
       templateUrl: 'home/_home.html'
     })
     .state('login', {
@@ -29,5 +29,5 @@ function($stateProvider, $urlRouterProvider) {
       }]
     });
 
-    //$urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('login');
 }]);
