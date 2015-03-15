@@ -1,14 +1,6 @@
 angular.module('sportivation')
-.controller('AuthCtrl', ['$scope', '$state', 'Auth', '$modal',
-  function($scope, $state, Auth, $modal) {
-
-    $scope.openLogin = function (size) {
-      var modalInstance = $modal.open({
-        templateUrl: 'LoginModalContent.html',
-        controller: 'ModalInstanceCtrl',
-        size: "md"
-      });
-    };
+.controller('AuthCtrl', ['$scope', '$state', 'Auth', '$modal', 'flash',
+  function($scope, $state, Auth, $modal, flash) {
 
     $scope.openRegister = function (size) {
       var modalInstance = $modal.open({
@@ -18,15 +10,18 @@ angular.module('sportivation')
       });
     };
 
-    $scope.login = function() {
-     Auth.login($scope.user).then(function(){
-       $state.go('home');
-     });
-    };
-
     $scope.register = function() {
      Auth.register($scope.user).then(function(){
        $state.go('home');
+       flash.success = 'Your registration was successful. Please tell us more about the sportsperson in you !';
+     }, function(error){
+       flash.error = "";
+       for (var k in error.data.errors) {
+          // use hasOwnProperty to filter out keys from the Object.prototype
+          if (error.data.errors.hasOwnProperty(k)) {
+            flash.error +=  k + " " + error.data.errors[k] + "; ";
+          }
+        }
      });
     };
 
@@ -53,12 +48,4 @@ angular.module('sportivation')
         buttonText:'Get Started'
       }
     ];
-}]).controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
-  $scope.ok = function () {
-    $modalInstance.close();
-  };
-
-  $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
-  };
-});
+}]);

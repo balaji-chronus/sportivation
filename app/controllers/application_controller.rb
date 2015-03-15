@@ -3,8 +3,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   # Turn on request forgery protection
   protect_from_forgery
-  respond_to :html, :json
   layout 'flatly'
+
+  respond_to :json
+  helper_method :current_user
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   after_filter :set_csrf_cookie_for_ng
@@ -12,6 +14,11 @@ class ApplicationController < ActionController::Base
   def set_csrf_cookie_for_ng
     cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?
   end
+
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
 
   protected
 

@@ -8,7 +8,7 @@
     margin-top: 60px;
 }
 .box-icon {
-    background-color: #57a544;
+    background-color: #3498db;
     border-radius: 50%;
     display: table;
     height: 100px;
@@ -29,7 +29,7 @@
 }
 .info > p {
     color: #717171;
-    
+
     padding-top: 10px;
     text-align: justify;
 }

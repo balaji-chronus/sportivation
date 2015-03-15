@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   root to: "home#index"
   resources :home
-  resources :home1
+
+  get 'auth/:provider/callback', to: 'fauth#create'
+  get 'auth/failure', to: redirect('/')
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

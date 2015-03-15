@@ -1,7 +1,44 @@
-<div class="collapse navbar-collapse pull-right" ng-controller="NavCtrl">
-  <ul class="nav navbar-nav">
-    <li ng-show="signedIn()"><a href="#/">{{ user.username }}</a></li>
-    <li ng-show="signedIn()"><a ng-click="logout()">Log Out</a></li>
-    <li ng-hide="signedIn()"><a href="#team" du-smooth-scroll>Team</a></li>
+<div class="collapse navbar-collapse" ng-controller="NavCtrl">
+  <ul class="nav navbar-nav navbar-right">
+    <li ng-show="signedIn()"><a>{{ user.username }}</a></li>
+    <li ng-show="signedIn()"><a href="#login" ng-click="logout()">Log Out</a></li>
+    <li ng-hide="signedIn()"><a href="#features" du-smooth-scroll offset="60">Features</a></li>
+    <li ng-hide="signedIn()"><a href="#team" du-smooth-scroll offset="60">Team</a></li>
+    <li ng-hide="signedIn()"><a href="#contact" du-smooth-scroll offset="60">Contact</a></li>
+    <li ng-hide="signedIn()"><button ng-click="openLogin()" class="top-buffer-sm left-buffer-sm btn btn-md btn-success text-clear animated fadeInLeft">Login</button></li>
+    <li ng-hide="signedIn()">
+      <button ng-click="flogin()" class="top-buffer-sm left-buffer-sm btn btn-md btn-info text-clear animated fadeInLeft">
+        <i class="fa fa-facebook"> &nbsp; <strong>Login with Facebook</strong></i>
+      </button>
+    </li>
   </ul>
 </div>
+
+<script type="text/ng-template" id="LoginModalContent.html">
+  <div class="modal-header">
+    <h3 class="modal-title">Getting Started</h3>
+  </div>
+  <div class="modal-body" ng-controller="NavCtrl">
+    <div class="login_register">
+      <div class="login-form">
+        <form ng-submit="login()" class="form-horizontal">
+          <fieldset>
+            <legend></legend>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Your email" ng-model="user.email">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" placeholder="Password" ng-model="user.password">
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btn btn-block btn-success" ng-click="ok()" value="Login">
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+  </div>
+</script>
