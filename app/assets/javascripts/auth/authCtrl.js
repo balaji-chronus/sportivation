@@ -25,6 +25,7 @@ angular.module('sportivation')
      });
     };
 
+    // Hero Carousel Content
     $scope.myInterval = 5000;
     $scope.slides = [{
         //image:'https://ourmaninproject.files.wordpress.com/2011/12/5174490944_6e407bc2ee_b.jpg',
@@ -46,6 +47,22 @@ angular.module('sportivation')
         headerText:'Content Header',
         text:'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.',
         buttonText:'Get Started'
+      }
+    ];
+
+    // Portal Features Content
+    $scope.portalFeatures = [
+      {
+        title:  "Feature A",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper",
+      },
+      {
+        title:  "Feature B",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper",
+      },
+      {
+        title:  "Feature C",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper",
       }
     ];
 }]);

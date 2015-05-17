@@ -37,6 +37,11 @@ angular.module('sportivation')
     $state.go('login');
   });
 
+  // Flash hide
+  $scope.hideflash = function(){
+    jQuery(".flash_message").removeClass("alert");
+  }
+
   // FACEBOOK LOGIN
 
   /**

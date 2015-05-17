@@ -1,4 +1,4 @@
-<div class="collapse navbar-collapse" ng-controller="NavCtrl">
+<div class="collapse navbar-collapse">
   <ul class="nav navbar-nav navbar-right">
     <li ng-show="signedIn()"><a>{{ user.username }}</a></li>
     <li ng-show="signedIn()"><a href="#login" ng-click="logout()">Log Out</a></li>
@@ -8,7 +8,7 @@
     <li ng-hide="signedIn()"><button ng-click="openLogin()" class="top-buffer-sm left-buffer-sm btn btn-md btn-success text-clear animated fadeInLeft">Login</button></li>
     <li ng-hide="signedIn()">
       <button ng-click="flogin()" class="top-buffer-sm left-buffer-sm btn btn-md btn-info text-clear animated fadeInLeft">
-        <i class="fa fa-facebook"> &nbsp; <strong>Login with Facebook</strong></i>
+        <i class="fa fa-facebook"> &nbsp; </i><strong>Login with Facebook</strong>
       </button>
     </li>
   </ul>

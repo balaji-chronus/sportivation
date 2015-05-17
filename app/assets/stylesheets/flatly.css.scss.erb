@@ -6,10 +6,17 @@
  *= require animate
  *= require agency
  *= require box
+ *= require timeline
  *= require font-awesome/css/font-awesome
 */
 
 /* App Styles */
+
+.rounded {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
 .navbar-brand {
   padding: 15px !important;
 }
@@ -25,25 +32,33 @@
   width: 100%;
   height: 0px;
   margin-bottom: 0px;
+  border-radius: 0px;
+  display: none;
 
   span.alert-message{
     color: #000;
   }
+
+  &.alert {
+    display: block;
+
+    &.in {
+      height: 60px;
+
+      span.alert-message{
+        color: #FFF;
+      }
+    }
+  }
 }
 
 .register-button{
-  position:absolute;
-  top: 300px;
-  left: 46%;
-}
-
-.flash_message.alert.in{
-  height: 75px;
-
-  span.alert-message{
-    color: #FFF;
-    line-height: 40px;
-  }
+  height: 9%; /* Set your own height: percents, ems, whatever! */
+  width: 25%; /* Set your own width: percents, ems, whatever! */
+  overflow: auto; /* Recommended in case content is larger than the container */
+  margin: auto; /* Center the item vertically & horizontally */
+  position: absolute; /* Break it out of the regular flow */
+  top: 75%; left: 0; bottom: 0; right: 0; /* Set the bounds in which to center it, relative to its parent/container */
 }
 
 .vcenter {
@@ -57,10 +72,37 @@
 .top-buffer-sm { margin-top: 7px; }
 .top-buffer-xs { margin-top: 5px; }
 
-.left-buffer { margin-left: 20px; }
-.left-buffer-md { margin-left: 15px; }
-.left-buffer-sm { margin-left: 7px; }
-.left-buffer-xs { margin-left: 5px; }
+.left-buffer { margin-left: 20px !important; }
+.left-buffer-md { margin-left: 15px !important; }
+.left-buffer-sm { margin-left: 7px !important; }
+.left-buffer-xs { margin-left: 5px !important; }
+
+.right-buffer { margin-right: 20px !important; }
+.right-buffer-md { margin-right: 15px !important; }
+.right-buffer-sm { margin-right: 7px !important; }
+.right-buffer-xs { margin-right: 5px !important; }
+
+.vertical_gutter {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.horizontal_gutter {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.gutter {
+  padding: 10px;
+}
+
+.no_gutter {
+  padding: 0 !important;
+}
 
 .text-clear{
   color:#FFFFFF !important;
@@ -73,19 +115,22 @@
 .navy-line{
   width:60px;
   height:1px;
-  margin:30px auto 0;
-  border-bottom:2px solid #2c3e50;
+  margin: 30px auto 0;
+  border-bottom:2px solid #111;
 }
 
+.m-b-lg {
+  margin-bottom: 30px;
+}
 
 section p{
   font-size:13px;
 }
 
-/* Landing Page */
+/* */
 
 .navbar.navbar-fixed-top {
-  background: #000;
+  background: #111;
 }
 
 /* Carousel - Start */
@@ -104,7 +149,11 @@ section p{
 }
 
 .container-content {
-  padding-top:60px;
+  padding-top: 75px;
+}
+
+.non-logged-in.container-content {
+  padding-top: 60px;
 }
 
 .clear-both{
@@ -115,16 +164,6 @@ section p{
     min-height: 500px !important;
 }
 
-.icheckbox_square-green{
-  position:relative;
-  display: inline-block;
-  vertical-align:middle;
-  padding: 0px;
-  width: 22px;
-  height: 22px;
-  border: none;
-  cursor: pointer;
-}
 /* Carousel - End */
 
 /* Services Section - Start */
@@ -147,17 +186,8 @@ section p{
 
 /* Services Section - End */
 
-/*Team Member Section - Start */
-
-.gray-section{
-  background:#f4f4f4;
-  margin-top:30px;
-}
-
-/* Team Member Section - End */
-
 .contact {
-    background-color: #222;
+    background-color: #111;
     background-image: url("<%= asset_url('map-image.png') %>");
     background-position:40% 0%;
     background-repeat: no-repeat;
