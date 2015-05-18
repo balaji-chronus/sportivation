@@ -12,7 +12,7 @@ angular.module('sportivation')
 
     $scope.register = function() {
      Auth.register($scope.user).then(function(){
-       $state.go('home');
+       $state.go('complete_profile');
        flash.success = 'Your registration was successful. Please tell us more about the sportsperson in you !';
      }, function(error){
        flash.error = "";

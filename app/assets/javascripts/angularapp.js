@@ -37,6 +37,23 @@ function($stateProvider, $urlRouterProvider, flashProvider, FacebookProvider) {
           $state.go('home');
         })
       }]
+    })
+    .state('complete_profile', {
+      url: '/complete_profile',
+      templateUrl: 'profile/_complete_profile.html',
+      controller: 'ProfileCtrl'
+    })
+    .state('complete_profile.personal_info', {
+      url: '/personal_info',
+      templateUrl: 'profile/_personal_info.html'
+    })
+    .state('complete_profile.sports_profile_info', {
+      url: '/sports_profile_info',
+      templateUrl: 'profile/_sports_profile_info.html'
+    })
+    .state('complete_profile.interests', {
+      url: '/interests',
+      templateUrl: 'profile/_interests.html'
     });
 
     $urlRouterProvider.otherwise('login');

@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <div id="form-container">
+
+      <div class="page-header text-center">
+        <div class="stepwizard">
+          <div class="stepwizard-row setup-panel">
+              <div class="stepwizard-step">
+                <a ui-sref-active="active" ui-sref=".personal_info" class="btn btn-primary btn-circle">1</a>
+                  <p>Personal Info</p>
+              </div>
+              <div class="stepwizard-step">
+                <a ui-sref-active="active" ui-sref=".sports_profile_info" class="btn btn-default btn-circle" >2</a>
+                  <p>Sporting Info</p>
+              </div>
+              <div class="stepwizard-step">
+                <a ui-sref-active="active" ui-sref=".interests"  class="btn btn-default btn-circle">3</a>
+                <p>Interests</p>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- use ng-submit to catch the form submission and use our Angular function -->
+      <form id="profile-complete-form" ng-submit="processForm()">
+          <!-- our nested state views will be injected here -->
+          <div id="form-views" ui-view></div>
+      </form>
+    </div>
+
+  <!-- show our formData as it is being typed -->
+  <pre>
+    {{ formData }}
+  </pre>
+
+</div>
+</div>

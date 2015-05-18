@@ -1,0 +1,40 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Personal Info</div>
+  <div class="panel-body">
+    <fieldset>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-adn"></i></span>
+          <input type="text" class="form-control" ng-required="true" name="name" placeholder="Full name" ng-model="formData.fullname">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <p class="input-group">
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+          <input type="text" class="form-control" ng-click="open($event)" datepicker-popup="dd-MMMM-yyyy" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" name="dob" placeholder="Date of birth" ng-model="formData.dob" />
+        </p>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+          <textarea class="form-control" rows="3" id="textArea" ng-model="formData.summary" placeholder="A summary about yourself that the other users will see"></textarea>
+        </div>
+      </div>
+
+      <%# country drop down %>
+      <%# Addresss Widget %>
+      <%# Phone %>
+    </fieldset>
+  </div>
+</div>
+<div class="form-group row">
+  <div class="col-xs-6 col-xs-offset-3">
+      <a ui-sref="form.interests" class="btn btn-block btn-info">
+      Next <span class="glyphicon glyphicon-circle-arrow-right"></span>
+      </a>
+  </div>
+</div>

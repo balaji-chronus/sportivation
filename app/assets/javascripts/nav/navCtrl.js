@@ -8,20 +8,20 @@ angular.module('sportivation')
     $scope.user = user;
   });
 
-  $scope.login = function() {
-   Auth.login($scope.user).then(function(){
-     $state.go('home');
-   }, function(error){
-     flash.error = 'Login failed - Invalid Username/Password';
-   });
-  };
-
   $scope.openLogin = function (size) {
     var modalInstance = $modal.open({
       templateUrl: 'LoginModalContent.html',
       controller: 'ModalInstanceCtrl',
       size: "md"
     });
+  };
+
+  $scope.login = function() {
+   Auth.login($scope.user).then(function(){
+     $state.go('home');
+   }, function(error){
+     flash.error = 'Login failed - Invalid Username/Password';
+   });
   };
 
   $scope.$on('devise:new-registration', function (e, user){
