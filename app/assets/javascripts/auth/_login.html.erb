@@ -2,15 +2,15 @@
   <carousel interval="myInterval">
     <slide ng-repeat="slide in slides" active="slide.active">
         <div class="jumbotron text-clear col-xs-8 col-xs-offset-2">
-          <h1 class="text-center animated fadeInUp">{{slide.headerText}}</h1>
-            <p class="text-center animated fadeInUp">{{slide.text}}</p>
+          <h1 class="text-center animated fadeInLeft">{{slide.headerText}}</h1>
+            <p class="text-center animated fadeInLeft">{{slide.text}}</p>
         </div>
     </slide>
-    <a ng-click="openRegister()" class="register-button top-buffer btn btn-success text-clear animated fadeInLeft">Game On ?</a>
+    <a data-animation="am-fade-and-scale" class="register-button top-buffer btn btn-success text-clear" data-template="auth/_register_modal_content.html" bs-modal="RegisterModal">Game On ?</a>
   </carousel>
 </div>
 
 
-<div ng-include="'auth/_register_modal_content.html'"></div>
+
 <div ng-include="'auth/_portal_features.html'"></div>
 <div ng-include="'auth/_contact_us.html'"></div>

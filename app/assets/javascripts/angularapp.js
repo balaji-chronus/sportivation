@@ -1,10 +1,11 @@
-angular.module('sportivation', ['ui.router', 'templates', 'Devise', 'ui.bootstrap','angular-flash.service', 'angular-flash.flash-alert-directive','duScroll', 'facebook'])
+angular.module('sportivation', ['ui.router', 'templates', 'Devise',  'ui.bootstrap', 'mgcrea.ngStrap', 'angular-flash.service', 'angular-flash.flash-alert-directive','duScroll', 'facebook', 'ngAnimate'])
 .config([
 '$stateProvider',
 '$urlRouterProvider',
 'flashProvider',
 'FacebookProvider',
-function($stateProvider, $urlRouterProvider, flashProvider, FacebookProvider) {
+'$modalProvider',
+function($stateProvider, $urlRouterProvider, flashProvider, FacebookProvider, $modalProvider) {
 
   // Set your appId through the setAppId method or
   // use the shortcut in the initialize method directly.
@@ -12,6 +13,11 @@ function($stateProvider, $urlRouterProvider, flashProvider, FacebookProvider) {
 
   // Support bootstrap 3.0 "alert-danger" class with error flash types
   flashProvider.errorClassnames.push('alert-danger');
+
+  // Modal Defaults
+  angular.extend($modalProvider.defaults, {
+    animation: 'am-flip-x'
+  });
 
   $stateProvider
     .state('home', {

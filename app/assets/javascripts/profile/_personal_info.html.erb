@@ -14,7 +14,9 @@
           <span class="input-group-btn">
             <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
           </span>
-          <input type="text" class="form-control" ng-click="open($event)" datepicker-popup="dd-MMMM-yyyy" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" name="dob" placeholder="Date of birth" ng-model="formData.dob" />
+          <datepicker>
+            <input ng-model="formData.dob" type="text"/>
+          </datepicker>
         </p>
       </div>
 
