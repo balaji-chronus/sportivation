@@ -5,7 +5,9 @@
     <li ng-hide="signedIn()"><a href="#features" du-smooth-scroll offset="60">Features</a></li>
     <li ng-hide="signedIn()"><a href="#team" du-smooth-scroll offset="60">Team</a></li>
     <li ng-hide="signedIn()"><a href="#contact" du-smooth-scroll offset="60">Contact</a></li>
-    <li ng-hide="signedIn()"><button ng-click="openLogin()" class="top-buffer-sm left-buffer-sm btn btn-md btn-success text-clear animated bounce">Login</button></li>
+    <li ng-hide="signedIn()">
+      <button class="top-buffer-sm left-buffer-sm btn btn-success text-clear" ng-click="showModal()">Login</button>
+    </li>
     <li ng-hide="signedIn()">
       <button ng-click="flogin()" class="top-buffer-sm left-buffer-sm btn btn-md btn-info text-clear animated bounce">
         <i class="fa fa-facebook"> &nbsp; </i><strong>Login with Facebook</strong>

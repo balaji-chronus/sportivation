@@ -22,12 +22,18 @@ function($stateProvider, $urlRouterProvider, flashProvider, FacebookProvider, $m
   $stateProvider
     .state('home', {
       url: '/home',
-      templateUrl: 'home/_home.html'
+      templateUrl: 'home/_home.html',
+      data: {
+        requireLogin: true
+      }
     })
     .state('login', {
       url: '/login',
       templateUrl: 'auth/_login.html',
       controller: 'AuthCtrl',
+      data: {
+        requireLogin: false
+      },
       onEnter: ['$state', 'Auth', function($state, Auth) {
         Auth.currentUser().then(function (){
           $state.go('home');
@@ -38,6 +44,9 @@ function($stateProvider, $urlRouterProvider, flashProvider, FacebookProvider, $m
       url: '/register',
       templateUrl: 'auth/_register.html',
       controller: 'AuthCtrl',
+      data: {
+        requireLogin: false
+      },
       onEnter: ['$state', 'Auth', function($state, Auth) {
         Auth.currentUser().then(function (){
           $state.go('home');
@@ -47,7 +56,10 @@ function($stateProvider, $urlRouterProvider, flashProvider, FacebookProvider, $m
     .state('complete_profile', {
       url: '/complete_profile',
       templateUrl: 'profile/_complete_profile.html',
-      controller: 'ProfileCtrl'
+      controller: 'ProfileCtrl',
+      data: {
+        requireLogin: true
+      }
     })
     .state('complete_profile.personal_info', {
       url: '/personal_info',
@@ -63,12 +75,35 @@ function($stateProvider, $urlRouterProvider, flashProvider, FacebookProvider, $m
     });
 
     $urlRouterProvider.otherwise('login');
-}]).controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
-  $scope.ok = function () {
-    $modalInstance.close();
-  };
+}]).run(function ($rootScope, $state, Auth, flash) {
+  var bypass;
+  $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
+    var requireLogin = toState.data.requireLogin;
 
-  $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
+    if (requireLogin) {
+      if (bypass)
+      {
+        bypass = false;
+        return;
+      }
+
+      event.preventDefault();
+      Auth.currentUser().then(function(){
+        bypass = true;
+        $state.go(toState, toParams)
+      }, function(){
+        flash.error = 'Authorization error. Please login to continue';
+        return $state.go("login");
+      });
+    }
+  })
+}).directive('requiredFieldBlock', function($compile) {
+  return {
+      restrict: 'C',
+      link: function(scope, elem, attrs) {
+        var x = angular.element('<div class="required-icon" title="Required Field" bs-tooltip><div class="text text-danger">*</div></div>');
+        elem.append(x);
+        $compile(x)(scope);
+      }
   };
-});
+});;

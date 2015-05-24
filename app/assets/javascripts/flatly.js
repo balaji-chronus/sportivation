@@ -12,6 +12,7 @@
 //= require flatly/bootswatch
 //= require ui-bootstrap-tpls-0.12.0
 //= require angular-strap
+//= require angular-strap.tpl
 //= require angular-animate
 //= require angular-scroll
 //= require angular-facebook

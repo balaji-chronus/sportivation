@@ -35,4 +35,13 @@ angular.module('sportivation')
 
     $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
     $scope.format = $scope.formats[0];
+
+    $scope.selectedAddress = '';
+    $scope.getAddress = function(viewValue) {
+      var params = {address: viewValue, sensor: false};
+      return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {params: params})
+      .then(function(res) {
+        return res.data.results;
+      });
+    };
   }]);

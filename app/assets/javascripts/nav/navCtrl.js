@@ -8,12 +8,9 @@ angular.module('sportivation')
     $scope.user = user;
   });
 
-  $scope.openLogin = function (size) {
-    var modalInstance = $modal.open({
-      templateUrl: 'LoginModalContent.html',
-      controller: 'ModalInstanceCtrl',
-      size: "md"
-    });
+  var myOtherModal = $modal({scope: $scope, template: 'auth/_login_modal_content.html', show: false});
+  $scope.showModal = function() {
+    myOtherModal.$promise.then(myOtherModal.show);
   };
 
   $scope.login = function() {
@@ -86,7 +83,6 @@ angular.module('sportivation')
         url: '/auth/facebook/callback',
         method: 'GET'
       }).success(function(data) {
-        $state.go("home");
         window.location.reload(true);
       }).error(function(msg) {
         $scope.user = {};
