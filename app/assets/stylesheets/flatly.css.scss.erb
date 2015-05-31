@@ -5,9 +5,9 @@
  *= require flatly/bootswatch
  *= require angular-motion
  *= require agency
- *= require box
+ *= require widgets
  *= require timeline
- *= require board
+ *= require common_widgets
  *= require common
  *= require font-awesome/css/font-awesome
 */
@@ -53,10 +53,6 @@
   background: transparent;
 }
 
-.container-content {
-  padding-top: 60px;
-}
-
 .carousel-inner{
     min-height: 500px !important;
 }
@@ -88,4 +84,34 @@
     background-image: url("<%= asset_url('map-image.png') %>");
     background-position:40% 0%;
     background-repeat: no-repeat;
+}
+
+.mg-date{
+  position: relative;
+  margin: 0 auto;
+  height: 35px;
+
+  .mg-day {
+    position: absolute;
+    top: 5px;
+  }
+
+  .mg-month{
+    position: absolute;
+    top: 30px;
+  }
+
+  .mg-year {
+    position: absolute;
+    top: 17px;
+    right: 0;
+    font-size: 20px;
+    rotation: -90deg !important;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+  }
+}
+
+div.list-group{
+  margin-bottom: 0;
 }

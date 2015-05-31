@@ -1,4 +1,6 @@
-//********** Flash Messages **********//
+@import "flatly/variables";
+
+/* Flash Messages */
 .flash_message {
   position: absolute;
   text-shadow: 0 1px 0 rgba(0,0,0,.5);
@@ -8,6 +10,8 @@
   margin-bottom: 0px;
   border-radius: 0px;
   display: none;
+  top: 0;
+  position: fixed;
 
   span.alert-message{
     color: #000;
@@ -26,18 +30,59 @@
   }
 }
 
-//********* App Wide utility styles ***********//
+/* App container styles */
 
-body {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+html {
+  height:100%;
+  min-height:100% !important;
+  margin:0;
+  padding:0;
 }
 
+body{
+  overflow:auto;
+  padding:0;
+  margin:0;
+  height:100%;
+  min-height:100% !important;
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  /** see height, min-height values here. **/
+}
+
+.main {
+  position:relative;
+  min-height:100%;
+  height:auto;
+  background: #f3f3f4;
+}
+
+.container-content {
+  padding-top: 60px;
+  margin-bottom: 50px;
+}
+
+footer {
+  display:block;
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:50px;
+  color:white;
+  padding:10px;
+  background: @gray-darker !important;
+  /** see position, top, left, and width properties here. **/
+}
+
+/* App Wide utility styles */
 
 .rounded {
     -webkit-border-radius: 5px;
     border-radius: 5px;
 }
+
+/* Margin & Padding */
 
 .top-buffer { margin-top: 20px; }
 .top-buffer-md { margin-top: 15px; }
@@ -59,33 +104,135 @@ body {
 .right-buffer-sm { margin-right: 7px !important; }
 .right-buffer-xs { margin-right: 5px !important; }
 
-.vertical_gutter {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+.container-buffer-xs {
+  margin-top: 5px !important;
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+  margin-bottom: 5px !important;
 }
 
-.horizontal_gutter {
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
+.buffer-xs{
+  margin: 5px;
+}
+
+.no-buffer{
+  margin: 0;
+}
+
+.no-left-buffer{
+  margin-left: 0;
+}
+
+.top-gutter-xs{
+  padding-top: 5px;
+}
+
+.vertical-gutter {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.vertical-gutter-sm {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.vertical-gutter-l {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.vertical-gutter-xl {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+
+.horizontal-gutter {
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.horizontal-gutter-xs {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.horizontal-gutter-l {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.horizontal-gutter-xl {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .gutter {
   padding: 10px;
 }
 
-.no_gutter {
+.gutter-l{
+  padding: 15px
+}
+
+.gutter-xl{
+  padding: 20px
+}
+
+.no-gutter {
   padding: 0 !important;
 }
 
-.text-clear{
-  color:#FFFFFF !important;
+/* background */
+.bg-clear{
+  background: #FFF !important;
 }
 
+.bg-dark{
+  background: @brand-primary !important;
+}
+
+/* color */
+.text-clear{
+  color: @gray-lighter !important;
+}
+
+.bg-success-dark{
+  background: darken(@brand-success, 10%);
+}
+
+/* border */
+
+.no-border{
+  border: 0 !important;
+}
+
+.gray-border{
+  border: @gray-lighter 1px solid !important;
+}
+
+.border-clear{
+  border-color: @gray-lighter  !important;
+}
+
+.no-shadow{
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+
+
+
 //******** Forms ***********//
+
+.btn-default-light, .label-default-light {
+  background: @gray-lighter;
+  border-color: #EFEFEF;
+}
+
+.btn-default-light:hover{
+  color: @brand-primary;
+}
 
 .form-horizontal .form-group
 {

@@ -1,40 +1,39 @@
-<div class="text-center">
-  <h3>
-     Are you sportviated? <br>
+<div class="container-fluid text-center container-buffer-xs bg-clear">
+  <h3 class="bottom-buffer-xs top-buffer-xs vertical-gutter">
+     <strong>Are you sportivated?</strong> <br>
      <small>Please let us know more about your profile</small>
   </h3>
 </div>
 
-<div class="board">
-  <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
-  <div class="board-inner">
-    <ul class="nav nav-tabs" id="myTab">
-      <div class="liner"></div>
-       <li>
-        <a ui-sref-active="active" ui-sref=".personal_info" title="Personal Info" class="text-info">
-          <span class="round-tabs one">
-            <i class="fa fa-user"></i>
-          </span>
-        </a>
-      </li>
+<!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
+<div class=" container-fluid board container-buffer-xs bg-clear clearfix gutter">
+  <ul class="list-unstyled">
+    <li class="pull-left text-center col-xs-4" ui-sref-active="active">
+      <a ui-sref=".personal_info" title="Personal Info" class="btn btn-sm btn-success rounded">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-user fa-stack-2x"></i>
+        </span>
+      </a>
+    </li>
 
-      <li>
-        <a ui-sref-active="active" ui-sref=".sports_profile_info" title="Sports Profile Info" class="text-info">
-          <span class="round-tabs two">
-            <i class="fa fa-futbol-o"></i>
-         </span>
-       </a>
-     </li>
-     <li>
-       <a ui-sref-active="active" ui-sref=".interests" title="Interests" class="text-info">
-         <span class="round-tabs three">
-           <i class="fa fa-heart"></i>
-         </span>
-       </a>
-     </li>
-   </ul>
-  </div>
+    <li class="pull-left text-center col-xs-4" ui-sref-active="active">
+      <a ui-sref=".sports_profile_info" title="Sports Profile Info" class="btn btn-sm btn-success rounded">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-futbol-o fa-stack-2x"></i>
+        </span>
+     </a>
+   </li>
+   <li class="pull-left text-center col-xs-4" ui-sref-active="active">
+     <a ui-sref=".interests" title="Interests" class="btn btn-sm btn-success rounded">
+       <span class="fa-stack fa-lg">
+         <i class="fa fa-heart fa-stack-2x"></i>
+       </span>
+     </a>
+   </li>
+ </ul>
+</div>
 
+<div class="container-fluid container-buffer-xs">
   <div class="tab-content">
      <!-- use ng-submit to catch the form submission and use our Angular function -->
      <form id="profile-complete-form" ng-submit="processForm()">

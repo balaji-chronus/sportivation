@@ -1,3 +1,6 @@
+@import "flatly/variables";
+
+/* feature Box */
 .box > .icon {
   text-align: center;
   position: relative;
@@ -28,7 +31,6 @@
   margin-top: -24px;
   border: 1px solid #e0e0e0;
   padding: 15px 0 10px 0;
-  background: #fafafa image-url("sports_image_7.png");
   background-size: 70%;
 }
 
@@ -36,7 +38,6 @@
   background: rgba(0, 0, 0, 0.04);
   border-color: #e0e0e0;
   color: white;
-  background: #fafafa image-url("sports_image_7.png");
   background-size: 70%;
 }
 
@@ -67,4 +68,28 @@
 
 .box .space {
   height: 30px;
+}
+
+/* Profile completeness Wizard */
+.board {
+  position: relative;
+  border: 1px solid;
+  border-color: @gray-lighter;
+  margin-bottom: 0;
+  box-sizing: border-box;
+
+
+  .liner{
+      height: 2px;
+      background: @gray-lighter;
+      position: absolute;
+      width: 62%;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      top: 50%;
+      z-index: 0;
+  }
+
+
 }

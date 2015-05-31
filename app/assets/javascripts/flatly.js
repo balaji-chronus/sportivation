@@ -1,6 +1,6 @@
 // Flatly
 // Bootswatch
-//= require jquery
+//= require jquery2
 //= require jquery_ujs
 //= require angular
 //= require angular-devise

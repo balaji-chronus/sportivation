@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: 'fauth#create'
   get 'auth/failure', to: redirect('/')
 
+  resources :profile
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

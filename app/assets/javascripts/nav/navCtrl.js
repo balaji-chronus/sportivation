@@ -36,7 +36,7 @@ angular.module('sportivation')
 
   // Flash hide
   $scope.hideflash = function(){
-    jQuery(".flash_message").removeClass("alert");
+    angular.element(document.querySelector('.flash_message')).removeClass("alert");
   }
 
   // FACEBOOK LOGIN

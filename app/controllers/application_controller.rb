@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   # Turn on request forgery protection
-  protect_from_forgery
+  protect_from_forgery with: :exception
   layout 'flatly'
 
   respond_to :json
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    @current_user ||= User.find(session["warden.user.user.key"].first.first) if session["warden.user.user.key"]
   end
 
 

@@ -1,14 +1,15 @@
 angular.module('sportivation')
-.controller('ProfileCtrl', ['$scope', '$state', 'flash', '$http',
-  function($scope, $state, flash, $http) {
+.controller('ProfileCtrl', ['$scope', '$state', 'flash', '$http', 'ProfileService',
+  function($scope, $state, flash, $http, ProfileService) {
 
-    $scope.formData = {};
+    //remove provider information
+    var keyArr = ["uid", "oauth_token", "provider", "oauth_expires_at"];
+    for(var i =0; i < keyArr.length; i++)
+    {
+      delete $scope.user[keyArr[i]];
+    }
 
-    // function to process the form
-    $scope.processForm = function() {
-        alert('awesome!');
-    };
-
+    // Datepicker related methods
     $scope.today = function() {
       $scope.dt = new Date();
     };
@@ -28,15 +29,7 @@ angular.module('sportivation')
       $scope.opened = true;
     };
 
-    $scope.dateOptions = {
-      formatYear: 'yy',
-      startingDay: 1
-    };
-
-    $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-    $scope.format = $scope.formats[0];
-
-    $scope.selectedAddress = '';
+    // Address Autocomplete
     $scope.getAddress = function(viewValue) {
       var params = {address: viewValue, sensor: false};
       return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {params: params})
@@ -44,4 +37,13 @@ angular.module('sportivation')
         return res.data.results;
       });
     };
+
+    $scope.updateProfile = function(user) {
+      return ProfileService.updateProfile(user).then(function(data) {
+        if (data.txnSuccess)
+          flash.success = "Update Successful";
+        else
+          flash.error = "Update Failed."
+      });
+    }
   }]);

@@ -42,6 +42,8 @@ gem 'twitter-bootswatch-rails', '~> 3.3.2'
 # twitter bootstrap helpers gem, e.g., alerts etc...
 gem 'twitter-bootswatch-rails-helpers'
 gem 'therubyracer'
+gem 'cancancan'
+gem 'protected_attributes'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
