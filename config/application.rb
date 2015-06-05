@@ -25,5 +25,7 @@ module MyDreamProject
 
     config.assets.precompile += %w(flatly.js flatly.css)
     config.app_generators.stylesheet_engine :less
+
+
   end
 end

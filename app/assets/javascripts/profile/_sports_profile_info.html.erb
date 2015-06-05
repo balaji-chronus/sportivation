@@ -3,19 +3,21 @@
     <div class="bpanel-box no-border no-shadow col-lg-6 col-md-12">
       <div class="bpanel-title vertical-gutter horizontal-gutter-l clearfix">
           Events & Tournaments
-          <span class="left-buffer-md">
-            <a class="btn btn-success btn-xs"><strong>ADD</strong></a>
-          </span>
+          <div class="pull-right">
+            <a class="btn btn-success btn-xs" id="add_tournament" ng-click="showNewEventAside()"><strong>ADD</strong></a>
+          </div>
       </div>
       <div class="bpanel-content no-gutter">
         <div class="list-group">
-          <div href="#" class="list-group-item">
-            <h4><div class="list-group-item-heading">IX Senior National Sepaktakraw Championship</div></h4>
-            <p class="list-group-item-text text-muted">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-            <div class="clearfix top-buffer-sm">
-              <h4 class="pull-left buffer-xs no-left-buffer"><label class="label label-default-light text-primary"><i class="fa fa-flag right-buffer-xs"></i> Tamilnadu</label></h4>
-              <h4 class="pull-left buffer-xs no-left-buffer"><label class="label label-default-light text-primary"><i class="fa fa-calendar-o right-buffer-xs"></i> Feb, 1999</label></h4>
-              <h4 class="pull-left buffer-xs no-left-buffer"><label class="label label-default-light text-primary"><i class="fa fa-map-marker right-buffer-xs"></i> Imphal, Manipur</label></h4>
+          <div ng-repeat="tournament in user.user_tournaments">
+            <div class="list-group-item">
+              <h4><div class="list-group-item-heading">{{tournament.name}}</div></h4>
+              <p class="list-group-item-text text-muted">{{tournament.summary}}</p>
+              <div class="clearfix top-buffer-sm">
+                <h4 class="pull-left buffer-xs no-left-buffer"><label class="label label-default-light text-primary"><i class="fa fa-flag right-buffer-xs"></i> {{tournament.team}}</label></h4>
+                <h4 class="pull-left buffer-xs no-left-buffer"><label class="label label-default-light text-primary"><i class="fa fa-calendar-o right-buffer-xs"></i> {{tournament.tournament_date | date:'MMM, yyyy'}}</label></h4>
+                <h4 class="pull-left buffer-xs no-left-buffer"><label class="label label-default-light text-primary"><i class="fa fa-map-marker right-buffer-xs"></i> {{tournament.location}}</label></h4>
+              </div>
             </div>
           </div>
         </div>
@@ -25,9 +27,9 @@
     <div class="bpanel-box no-border no-shadow col-lg-6 col-md-12">
       <div class="bpanel-title vertical-gutter horizontal-gutter-l clearfix">
           Press & Media
-          <span class="left-buffer-md">
+          <div class="pull-right">
             <a class="btn btn-success btn-xs"><strong>ADD</strong></a>
-          </span>
+          </div>
       </div>
       <div class="bpanel-content no-gutter">
         <div class="list-group">
@@ -47,9 +49,9 @@
     <div class="bpanel-box no-border no-shadow col-lg-6 col-md-12">
       <div class="bpanel-title vertical-gutter horizontal-gutter-l clearfix">
           Records & Acheivements
-          <span class="left-buffer-md">
+          <div class="pull-right">
             <a class="btn btn-success btn-xs"><strong>ADD</strong></a>
-          </span>
+          </div>
       </div>
       <div class="bpanel-content no-gutter">
         <div class="list-group">
@@ -62,19 +64,6 @@
               <h4 class="pull-left buffer-xs no-left-buffer"><label class="label label-default-light text-primary"><i class="fa fa-map-marker right-buffer-xs"></i> Imphal, Manipur</label></h4>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="bpanel-box col-xs-12 form-group">
-      <div class="bpanel-title vertical-gutter horizontal-gutter-xl clearfix">
-        <h4 class="no-buffer"><label class='label text-primary no-gutter control-label'>Biggest Sporting Acheivements</label></h4>
-      </div>
-      <div class="bpanel-content no-gutter">
-        <div class="input-group">
-          <span class="input-group-addon"><i class="fa fa-info"></i></span>
-          <textarea class="form-control" rows="3" id="textArea" ng-model="user.sportacheivement" placeholder="Biggest Acheivement Ex:- Winner of 4 Olympic Medals; Best Player - Tournament;"></textarea>
         </div>
       </div>
     </div>

@@ -1,15 +1,16 @@
 angular.module('sportivation')
-.factory('ProfileService', function($http, $log, $q) {
-    return {
-      updateProfile: function(user) {
-        var deferred = $q.defer();
-        $http.put('/profile/' + user.id, {"user": user}).success(function(data){
-          deferred.resolve({txnSuccess: data.txn_success});
-        }).error(function(msg, code){
-          deferred.reject(msg);
-          $log.error(msg, code);
-        });
-        return deferred.promise;
-      }
+.factory('ProfileService', ['apiService', function(apiService) {
+  return {
+    updateProfile: function(user) {
+      return apiService.put('/profile/' + user.id, {"user": user});
+    },
+
+    getAddress: function(params) {
+      return apiService.get('http://maps.googleapis.com/maps/api/geocode/json', {params: params});
+    },
+
+    getProfile: function(user) {
+      return apiService.get('/profile/' + user.id, {});
     }
-  });
+  }
+}]);

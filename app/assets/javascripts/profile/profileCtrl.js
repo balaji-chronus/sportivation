@@ -1,49 +1,42 @@
 angular.module('sportivation')
-.controller('ProfileCtrl', ['$scope', '$state', 'flash', '$http', 'ProfileService',
-  function($scope, $state, flash, $http, ProfileService) {
+.controller('ProfileCtrl', ['$scope', '$state', 'flash', '$http', 'ProfileService', '$aside',
+  function($scope, $state, flash, $http, ProfileService, $aside) {
+    $scope.eventData = {};
 
-    //remove provider information
-    var keyArr = ["uid", "oauth_token", "provider", "oauth_expires_at"];
-    for(var i =0; i < keyArr.length; i++)
-    {
-      delete $scope.user[keyArr[i]];
-    }
-
-    // Datepicker related methods
-    $scope.today = function() {
-      $scope.dt = new Date();
+    $scope.loadData = function () {
+      ProfileService.getProfile($scope.user).then(function(res) {
+         $scope.user = res.data;
+       });
     };
 
-    $scope.today();
-
-    $scope.clear = function () {
-      $scope.dt = null;
-    };
-
-    $scope.minDate = null;
-
-    $scope.open = function($event) {
-      $event.preventDefault();
-      $event.stopPropagation();
-
-      $scope.opened = true;
-    };
+    // initial Load
+    $scope.loadData();
 
     // Address Autocomplete
     $scope.getAddress = function(viewValue) {
       var params = {address: viewValue, sensor: false};
-      return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {params: params})
-      .then(function(res) {
+      return ProfileService.getAddress(params).then(function(res) {
         return res.data.results;
       });
     };
 
     $scope.updateProfile = function(user) {
-      return ProfileService.updateProfile(user).then(function(data) {
-        if (data.txnSuccess)
-          flash.success = "Update Successful";
+      return ProfileService.updateProfile(user).then(function(res) {
+        if (res.data.txn_success)
+          flash.success = "Profile was updated successfully";
         else
-          flash.error = "Update Failed."
+          flash.error = "Profile update was not successful"
       });
+    }
+
+    $scope.addEvent = function(){
+      $scope.user.user_tournaments.push($scope.eventData);
+      $scope.updateProfile($scope.user);
+    }
+
+    var newEventAside = $aside({scope: $scope, template: 'events/new_event.html', show: false, container: '#form-views'});
+    // Show when some event occurs (use $promise property to ensure the template has been loaded)
+    $scope.showNewEventAside = function() {
+      newEventAside.$promise.then(newEventAside.show());
     }
   }]);

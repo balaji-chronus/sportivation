@@ -1,0 +1,87 @@
+@import "flatly/variables";
+
+/*
+ * Aside element
+ */
+.aside {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 1049;
+  overflow: auto;
+  min-width: 320px;
+  background: white;
+}
+.aside:focus {
+  outline: none;
+}
+@media (max-width: 991px) {
+  .aside {
+    min-width: 240px;
+  }
+}
+.aside.left {
+  right: auto;
+  left: 0;
+}
+.aside.right {
+  right: 0;
+  left: auto;
+}
+.aside .aside-dialog .aside-header {
+  padding: 15px;
+  border-bottom: 1px solid @gray-lighter;
+  min-height: 16.42857143px;
+  padding: 6px 15px;
+  background: @brand-success;
+  color: white;
+}
+.aside .aside-dialog .aside-header .close {
+  margin-right: -8px;
+  padding: 4px 8px;
+  color: white;
+  font-size: 25px;
+  opacity: .8;
+}
+.aside .aside-dialog .aside-body {
+  position: relative;
+  padding: 15px;
+}
+.aside .aside-dialog .aside-footer {
+  padding: 15px;
+  text-align: right;
+  border-top: 1px solid @gray-lighter;
+}
+.aside .aside-dialog .aside-footer .btn + .btn {
+  margin-left: 5px;
+  margin-bottom: 0;
+}
+.aside .aside-dialog .aside-footer .btn-group .btn + .btn {
+  margin-left: -1px;
+}
+.aside .aside-dialog .aside-footer .btn-block + .btn-block {
+  margin-left: 0;
+}
+.aside-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: @brand-primary;
+}
+.aside-backdrop.fade {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.aside-backdrop.in {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+.aside .aside-dialog .aside-footer:before,
+.aside .aside-dialog .aside-footer:after {
+  content: " ";
+  display: table;
+}

@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   attr_protected :oauth_token, :uid, :provider
 
+  has_many :user_tournaments, :dependent => :destroy
+
   def ability
     @ability = Ability.new(self)
   end

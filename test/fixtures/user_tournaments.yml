@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  summary: MyText
+  team: MyString
+  location: MyString
+  tournament_date: 2015-06-04
+
+two:
+  name: MyString
+  summary: MyText
+  team: MyString
+  location: MyString
+  tournament_date: 2015-06-04

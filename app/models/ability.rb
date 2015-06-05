@@ -31,5 +31,7 @@ class Ability
     can :update, User do |resource_user|
       user == resource_user
     end
+
+    can :show, User
   end
 end
