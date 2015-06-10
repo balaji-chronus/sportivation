@@ -82,6 +82,14 @@ footer {
     border-radius: 5px;
 }
 
+.link-text{
+  cursor: pointer;
+
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
 /* Margin & Padding */
 
 .top-buffer { margin-top: 20px; }
@@ -184,6 +192,11 @@ footer {
   padding: 0 !important;
 }
 
+/* Alignment */
+.text-bottom{
+  vertical-align: text-bottom;
+}
+
 /* background */
 .bg-clear{
   background: #FFF !important;
@@ -202,10 +215,20 @@ footer {
   background: darken(@brand-success, 10%);
 }
 
-/* border */
+/* border & shadow */
 
 .no-border{
   border: 0 !important;
+}
+
+.no-horizontal-border{
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+
+.no-vertical-border{
+  border-left: 0 !important;
+  border-right: 0 !important;
 }
 
 .gray-border{
@@ -221,7 +244,20 @@ footer {
   -webkit-box-shadow: none !important;
 }
 
+.title-shadow{
+  box-shadow: 0 2px 4px rgba(0,0,0,.2);
+  -webkit-box-shadow: 0 2px 4px rgba(0,0,0,.2);
+}
 
+/* Font Styles */
+
+.normal-font{
+  font-weight: normal;
+}
+
+.big-font{
+  font-size: 15px;
+}
 
 //******** Forms ***********//
 

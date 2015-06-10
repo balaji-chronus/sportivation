@@ -3,6 +3,7 @@ angular.module('sportivation')
   function($scope, $state, flash, $http, ProfileService, $aside) {
     $scope.eventData = {};
 
+
     $scope.loadData = function () {
       ProfileService.getProfile($scope.user).then(function(res) {
          $scope.user = res.data;
@@ -29,14 +30,27 @@ angular.module('sportivation')
       });
     }
 
-    $scope.addEvent = function(){
-      $scope.user.user_tournaments.push($scope.eventData);
-      $scope.updateProfile($scope.user);
-    }
-
-    var newEventAside = $aside({scope: $scope, template: 'events/new_event.html', show: false, container: '#form-views'});
-    // Show when some event occurs (use $promise property to ensure the template has been loaded)
-    $scope.showNewEventAside = function() {
-      newEventAside.$promise.then(newEventAside.show());
-    }
+    // Sports Profile Tabs
+    $scope.tabs = [
+      {
+        title: "calendar",
+        name: "Events & Tournaments",
+        controllerName: "UserEventCtrl",
+        show: true, //this is so this tab shows by default
+        templateUrl: "user_events/user_events_list.html"
+      },
+      {
+        title: "video-camera",
+        name: "Press & Media",
+        controllerName: "UserMediaCtrl",
+        templateUrl: "user_media/user_media_list.html"
+      },
+      {
+        title: "trophy",
+        name: "Records & Acheivements",
+        controllerName: "UserRecordCtrl",
+        templateUrl: "user_records/user_records_list.html"
+      }
+    ];
+    $scope.selectedSportsTab = $scope.tabs[0].title;
   }]);

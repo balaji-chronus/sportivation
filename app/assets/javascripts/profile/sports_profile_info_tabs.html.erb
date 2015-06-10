@@ -1,0 +1,41 @@
+<ul class="nav nav-tabs ">
+  <li ng-class="{active: selectedSportsTab == 'calendar'}"
+      class="col-xs-4 no-gutter text-center big-font"
+      ng-click="$parent.selectedSportsTab = 'calendar'; setActiveTab('calendar')" ng-controller="UserEventCtrl">
+    <a>
+      <strong>
+        <i class="fa fa-calendar right-buffer-sm"></i>
+        <span class="hidden-sm hidden-xs">Events & Tournaments</span>
+        <span class="hidden-sm hidden-xs label label-success link-text left-buffer-sm" ng-click="showNewEventAside()">ADD</span>
+      </strong>
+    </a>
+  </li>
+  <li ng-class="{active: selectedSportsTab=='video-camera'}"
+      class="col-xs-4 no-gutter text-center big-font"
+      ng-click="selectedSportsTab='video-camera'; setActiveTab('video-camera')">
+    <a>
+      <strong>
+        <i class="fa fa-video-camera right-buffer-sm"></i>
+        <span class="hidden-sm hidden-xs">Press & Media</span>
+        <span class="hidden-sm hidden-xs label label-success link-text left-buffer-sm">ADD</span>
+      </strong>
+    </a>
+  </li>
+  <li ng-class="{active: selectedSportsTab=='trophy'}"
+      class="col-xs-4 no-gutter text-center big-font"
+      ng-click="selectedSportsTab='trophy'; setActiveTab('trophy')">
+    <a>
+      <strong>
+        <i class="fa fa-trophy right-buffer-sm"></i>
+        <span class="hidden-sm hidden-xs">Records & Acheivements</span>
+        <span class="hidden-sm hidden-xs label label-success link-text left-buffer-sm">ADD</span>
+      </strong>
+    </a>
+  </li>
+</ul>
+
+
+
+<div ng-repeat="tab in tabs" ng-show="tab.show" class="tab-pane">
+  <div static-include="{{tab.templateUrl}}"></div>
+</div>

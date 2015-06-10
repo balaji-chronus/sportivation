@@ -2,16 +2,15 @@ class ProfileController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    authorize! :update, current_user
+    
   end
 
   def update
     user_params = user_permitted_params
     user_id = user_params.delete(:id)
-    user_tournaments_attributes = user_params.delete("user_tournaments")
+    user_params.delete("user_tournaments")
     @user = User.find(user_id)
     authorize! :update, @user
-    @user.user_tournaments = UserTournament.setup_user_tournaments(user_tournaments_attributes)
 
     if needs_password?(@user, user_params)
       user_params.delete(:password)
@@ -38,7 +37,6 @@ class ProfileController < ApplicationController
 
   def user_permitted_params
     params.require(:user).permit([:id, :email, :created_at, :updated_at, :name,
-                  :displayname, :contactphone, :address, :summary, :dob, :gender,
-                  {:user_tournaments => [:id, :name, :team, :summary, :location, :tournament_date]}])
+                  :displayname, :contactphone, :address, :summary, :dob, :gender])
   end
 end

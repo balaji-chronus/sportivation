@@ -1,0 +1,31 @@
+<div class="bpanel-box no-border col-lg-12">
+  <div class="bpanel-title  hidden-lg hidden-md vertical-gutter horizontal-gutter-l clearfix">
+      <strong>Press & Media</strong>
+      <div class="pull-right">
+        <a class="btn btn-success btn-xs"><strong>ADD</strong></a>
+      </div>
+  </div>
+  <div class="bpanel-content" ng-show="user.user_media === undefined || user.user_media.length <= 0">
+    <span class="text-muted">No Information</span>
+  </div>
+  <div class="bpanel-content no-gutter">
+    <div class="list-group">
+      <div ng-repeat="tournament in user.user_media">
+        <div class="list-group-item gutter-xl no-vertical-border">
+          <div class="list-group-item-heading big-font">
+            <strong>
+              <i class="fa fa-certificate text-primary right-buffer-sm"></i>
+              {{tournament.name}}
+            </strong>
+          </div>
+          <p class="list-group-item-text text-muted">{{tournament.summary}}</p>
+          <div class="clearfix top-buffer-sm">
+            <h4 class="pull-left buffer-xs no-left-buffer"><label class="normal-font label label-default-light text-primary"><i class="fa fa-calendar-o right-buffer-xs"></i> {{tournament.tournament_date | date:'MMM, yyyy'}}</label></h4>
+            <h4 class="pull-left buffer-xs no-left-buffer"><label class="normal-font label label-default-light text-primary"><i class="fa fa-flag right-buffer-xs"></i> {{tournament.team}}</label></h4>
+            <h4 class="pull-left buffer-xs no-left-buffer"><label class="normal-font label label-default-light text-primary"><i class="fa fa-map-marker right-buffer-xs"></i> {{tournament.location}}</label></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

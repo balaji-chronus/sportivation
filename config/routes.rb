@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
 
   resources :profile
+  resources :user_tournaments
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
