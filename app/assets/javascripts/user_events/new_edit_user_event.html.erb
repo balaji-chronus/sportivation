@@ -3,7 +3,7 @@
     <div class="aside-content">
       <div class="aside-header bg-success clearfix">
         <button type="button" class="close" ng-click="$hide()">×</button>
-        <h4 class="aside-title text-clear">{{eventData.operation.capitalize()}} Tournament</h4>
+        <h4 class="aside-title text-clear">{{eventData.operation.capitalize()}} Event</h4>
       </div>
       <div class="aside-body">
         <div class="form-group">
@@ -42,7 +42,7 @@
           <h4 class="clearfix"><label class='label pull-left text-primary no-gutter control-label'>Date</label></h4>
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-            <input type="text" class="form-control" ng-required="true" data-date-format="MMM, yyyy" data-placement="top-left" data-min-view="1" placeholder="Month and Year of the Tournament" autoclose="1" ng-model="user_tournament.tournament_date" bs-datepicker>
+            <input type="text" class="form-control" ng-required="true" data-date-format="MMM, yyyy" data-placement="top-left" data-min-view="1" placeholder="Month and Year of the Event" autoclose="1" ng-model="user_tournament.tournament_date" bs-datepicker>
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@
           Close
         </button>
         <button type="button" class="btn btn-primary" ng-click="createUpdateEvent(eventData.operation); $hide()">
-          Save changes
+          Save Event
         </button>
       </div>
     </div>

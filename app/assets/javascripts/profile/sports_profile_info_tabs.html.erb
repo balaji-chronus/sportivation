@@ -23,12 +23,12 @@
   </li>
   <li ng-class="{active: selectedSportsTab=='trophy'}"
       class="col-xs-4 no-gutter text-center big-font"
-      ng-click="selectedSportsTab='trophy'; setActiveTab('trophy')">
+      ng-click="$parent.selectedSportsTab='trophy'; setActiveTab('trophy')" ng-controller="UserRecordCtrl">
     <a>
       <strong>
         <i class="fa fa-trophy right-buffer-sm"></i>
         <span class="hidden-sm hidden-xs">Records & Acheivements</span>
-        <span class="hidden-sm hidden-xs label label-success link-text left-buffer-sm">ADD</span>
+        <span class="hidden-sm hidden-xs label label-success link-text left-buffer-sm" ng-click="showNewRecordAside()">ADD</span>
       </strong>
     </a>
   </li>
