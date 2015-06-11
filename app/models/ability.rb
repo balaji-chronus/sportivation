@@ -33,5 +33,10 @@ class Ability
     end
 
     can :show, User
+
+    can :create, UserTournament
+    can :update, UserTournament do |user_tournament|
+        user_tournament.user == user
+    end
   end
 end
